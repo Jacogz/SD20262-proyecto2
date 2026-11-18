@@ -1,0 +1,11 @@
+.env
+.venv/
+__pycache__/
+src/infra/config.env
+src/infra/keys/
+src/infra/.ec2_state
+/docs
+/scripts/infra/01_create_instance.sh
+/scripts/infra/02_launch_ec2.sh
+/scripts/infra/03_deploy.sh
+/scripts/infra/common.sh
