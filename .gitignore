@@ -45,3 +45,6 @@ pruebas-locales/prueba/
 
 # Copias locales del repositorio descargadas como ZIP
 SD20262-proyecto2-master/
+
+# Enlace local para setup_rds.py (ver 02-fuentes/README.md)
+src/data
