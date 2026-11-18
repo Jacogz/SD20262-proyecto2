@@ -9,3 +9,39 @@ src/infra/01_create_instance.sh
 src/infra/02_launch_ec2.sh
 src/infra/03_deploy.sh
 src/infra/common.sh
+
+# Sistema operativo / editores
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# Python
+*.py[cod]
+.ipynb_checkpoints/
+venv/
+env/
+.python-version
+
+# Secretos y llaves
+.env.*
+!.env.example
+*.pem
+*.key
+credentials
+config.env
+
+# Spark / Hive locales
+spark-warehouse/
+metastore_db/
+derby.log
+
+# Salidas de pruebas locales y artefactos generados
+pruebas-locales/prueba/
+06-consultas-sql/resultados/
+08-visualizacion-api/src/out/
+08-visualizacion-api/api/lambda.zip
+*.zip
+
+# Copias locales del repositorio descargadas como ZIP
+SD20262-proyecto2-master/
