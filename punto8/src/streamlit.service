@@ -1,0 +1,13 @@
+[Unit]
+Description=Streamlit Saber 11
+After=network.target
+
+[Service]
+User=ec2-user
+WorkingDirectory=/opt/saber11
+Environment=API_URL=https://REEMPLAZAR.execute-api.us-east-1.amazonaws.com
+ExecStart=/opt/saber11/.venv/bin/streamlit run app.py --server.port 8501 --server.address 0.0.0.0 --server.headless true
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
