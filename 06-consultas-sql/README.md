@@ -41,7 +41,7 @@ spark-submit --files consultas.sql sparksql_consultas.py --modo catalogo --sql c
   --salida s3://BUCKET/refined/consultas_sparksql
 
 # Local, sobre la muestra:
-python sparksql_consultas.py --modo parquet --trusted ../pruebas-locales/trusted_prueba --salida ./resultados
+python sparksql_consultas.py --modo parquet --trusted ../pruebas-locales/prueba/trusted --salida ./resultados
 ```
 
 Guarda el resultado de cada consulta como CSV en `refined/consultas_sparksql/<id>/`.

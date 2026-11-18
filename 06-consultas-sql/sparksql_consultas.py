@@ -11,7 +11,7 @@ Guarda el resultado de cada consulta como CSV en --salida (ej. s3://BUCKET/refin
 
 Ejemplos:
   spark-submit sparksql_consultas.py --modo catalogo --base_datos saber11 --salida s3://BUCKET/refined/consultas_sparksql
-  python sparksql_consultas.py --modo parquet --trusted ../pruebas-locales/trusted_prueba --salida ./resultados
+  python sparksql_consultas.py --modo parquet --trusted ../pruebas-locales/prueba/trusted --salida ./resultados
 """
 import argparse
 import os

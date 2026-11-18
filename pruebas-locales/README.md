@@ -8,7 +8,7 @@
 
 ```bash
 pip install pyspark==3.5.3 pandas numpy openpyxl xlrd sqlalchemy python-dotenv matplotlib
-python preparar_raw_desde_repo.py /ruta/SD20262-proyecto2 ./prueba
+python preparar_raw_desde_repo.py .. ./prueba    # ".." = raíz de este repositorio
 python ../04-preparacion/raw_to_trusted.py --raw ./prueba/raw --trusted ./prueba/trusted
 python ../04-preparacion/trusted_to_refined.py --trusted ./prueba/trusted --refined ./prueba/refined
 python ../06-consultas-sql/sparksql_consultas.py --modo parquet --trusted ./prueba/trusted --salida ./prueba/sql
