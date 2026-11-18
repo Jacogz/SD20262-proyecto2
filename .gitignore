@@ -5,7 +5,7 @@ src/infra/config.env
 src/infra/keys/
 src/infra/.ec2_state
 /docs
-/src/infra/01_create_instance.sh
-/src/infra/02_launch_ec2.sh
-/src/infra/03_deploy.sh
-/src/infra/common.sh
+src/infra/01_create_instance.sh
+src/infra/02_launch_ec2.sh
+src/infra/03_deploy.sh
+src/infra/common.sh
