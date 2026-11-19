@@ -69,7 +69,7 @@ LOCAL_DIR=./out streamlit run app.py                                  # la app l
 Sin las tablas de RDS la pestaña 2 muestra solo oficial vs no oficial (sin cruce por zona).
 `out/` y `api/lambda.zip` están en `.gitignore`.
 
-## Relación con los puntos 1 a 7
+## Relación con los puntos 1 a 6
 Este punto corre **después de la ingesta (punto 3)** y solo necesita la zona `raw/`: `build_refined.py`
 calcula sus propias respuestas con pandas y las deja en `s3://BUCKET/refined/api/`. No lee las tablas
 `p1_...` a `p7_...` que generan Glue/EMR (punto 4) ni la base `saber11` del catálogo (punto 5), y no
@@ -83,9 +83,8 @@ Equivalencia entre los endpoints de la API y las preguntas del proyecto (ver `..
 | `q2` | P2 · Oficial vs no oficial según la zona | `p2_puntaje_naturaleza_zona`, `p2_brecha_naturaleza_zona` |
 | `q3` | P3 · Área más débil por región | `p3_area_mas_debil_region` |
 | `q4` | P4 · Evolución por departamento | `p4_evolucion_departamento` |
-| — | P5 · Estrato y educación de los padres (requiere datos por estudiante) | `p5_*` |
-| `q5` | P6 · Top 10 colegios por departamento | `p6_top10_colegios_departamento` |
-| `q6` | P7 · Brecha Bogotá, Medellín, Cali vs resto | `p7_brecha_ciudades_principales` |
+| `q5` | P5 · Top 10 colegios por departamento | `p6_top10_colegios_departamento` |
+| `q6` | P6 · Brecha Bogotá, Medellín, Cali vs resto | `p7_brecha_ciudades_principales` |
 
 Diferencias de método frente a los puntos 4 a 6 (los números pueden no coincidir exactamente con Athena):
 - Agrupa por año mezclando calendario A y B; los puntos 4 a 7 usan solo calendario A para "último periodo" y evolución.
