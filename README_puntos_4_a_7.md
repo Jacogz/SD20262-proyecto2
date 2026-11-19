@@ -35,13 +35,11 @@ Los jobs escriben `trusted/`, `refined/` y usan `scripts/`, `tmp/` y `athena-res
 8. **Bogotá D.C. separada de Cundinamarca**, y región natural asignada por código DIVIPOLA del departamento.
 9. **Robustez:** un Excel corrupto o con estructura anterior a 2014 se omite con aviso (no detiene el job); de RDS se lee solo la `ingest_date` más reciente.
 
-## ⚠️ Pendiente de decisión del equipo: pregunta 5
+## Preguntas de negocio: numeración final
 
-P5 (estrato y educación de los padres) **necesita datos por estudiante**, que no están en los Excel agregados por colegio. Opciones:
-- Agregar a la ingesta el CSV de datos.gov.co *Resultados únicos Saber 11* en `raw/ec2/saber11_individual/`. El job ya lo procesa si existe (elimina duplicados y el identificador del estudiante).
-- O cambiar P5 por una pregunta que se responda con datos por colegio (por ejemplo, puntaje según jornada o calendario).
+El equipo dejó **6 preguntas de negocio** en el punto 1 y descartó la de estrato y educación de los padres. El código la sigue soportando si se cargan datos por estudiante en `raw/ec2/saber11_individual/`; mientras tanto, refined omite P5 con un aviso y las consultas P5a-c de `consultas.sql` fallan de forma esperada y **no hacen parte de la entrega**.
 
-Mientras tanto, refined omite P5 con un aviso y las consultas P5a-c fallan (están al final de `consultas.sql` para no frenar a Hive).
+Equivalencia entre el código y el documento: **P1-P4 del código = Preguntas 1-4 del documento; P6 del código = Pregunta 5 (top 10 colegios); P7 del código = Pregunta 6 (brecha ciudades).**
 
 ## Orden de ejecución en AWS
 
