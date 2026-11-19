@@ -4,7 +4,7 @@
 
 También genera los gráficos de `graficos/`, que sirven para el documento y como referencia para el Power BI.
 
-> **Los gráficos y salidas que hay ahora en el repositorio salen de una prueba local** (archivos sintéticos del repo y un Excel 2023-4 de prueba). No los usen en el documento: vuelvan a ejecutar el notebook en EMR sobre el bucket.
+> Los gráficos de `graficos/` se generaron en **Amazon EMR el 2026-11-18** sobre el bucket real. `p7_ciudades.png` se regeneró con `grafico_p7_calendario_a.py` (solo calendario A, consultando Athena) porque el original mezclaba periodos de calendario B.
 
 - P2 usa la zona de la sede (directorio de RDS); P4 usa solo calendario A y grafica el promedio nacional más los 3 mejores y 3 peores departamentos, marcando con `*` los años con datos sintéticos.
 - **P5 se omite con un mensaje si no existe `trusted/estudiante`** (datos por estudiante).
@@ -25,6 +25,15 @@ aws emr add-steps --cluster-id j-XXXX --steps \
 ```
 
 En modo step, los gráficos quedan en el disco del nodo maestro; para las capturas conviene la opción A.
+
+## Gráfico P7 (calendario A)
+
+`grafico_p7_calendario_a.py` consulta `trusted_colegio_periodo` en Athena (base `saber11`) solo con periodos de calendario A y guarda `p7_ciudades.png` en la carpeta actual. Requiere `boto3` y `matplotlib`, y credenciales de AWS (por ejemplo, en CloudShell):
+
+```bash
+pip install boto3 matplotlib
+python3 grafico_p7_calendario_a.py --bucket <BUCKET>   # opcional: --region us-east-1
+```
 
 ## Ejecutar en local
 
